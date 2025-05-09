@@ -113,7 +113,7 @@ Artisan::command('timing-attack:sendResetLink {iterations}', function ($iteratio
         $tokens,
         Auth::createUserProvider('users'),
         app('events'),
-        //timeboxDuration: config('auth.timebox_duration'),
+        timeboxDuration: config('auth.timebox_duration'),
     );
 
     Benchmark::dd([
@@ -167,7 +167,7 @@ Artisan::command('timing-attack:reset {iterations}', function ($iterations) {
         $tokens,
         Auth::createUserProvider('users'),
         app('events'),
-        //timeboxDuration: config('auth.timebox_duration'),
+        timeboxDuration: config('auth.timebox_duration'),
     );
 
     $callback = fn () => null;
