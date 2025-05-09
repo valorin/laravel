@@ -12,7 +12,7 @@ Artisan::command('inspire', function () {
 
 
 
-Artisan::command('timing-attack:attempt', function () {
+Artisan::command('timing-attack:attempt {iterations}', function ($iterations) {
 
     $user = User::firstOrCreate([
         'email' => 'stephen@valorinsecurity.com',
@@ -65,6 +65,6 @@ Artisan::command('timing-attack:attempt', function () {
             $guard->getTimebox()->dontReturnEarly();
             $guard->attemptWhen(['email' => 'noone@test.com', 'password' => 'abc']);
         },
-    ], 200);
+    ], $iterations);
 
 });
