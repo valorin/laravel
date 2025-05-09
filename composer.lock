@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "88970a0117c062eed55fa8728fc43833",
+    "content-hash": "bd8c6532772e779e1b889f245c32f7ef",
     "packages": [
         {
             "name": "brick/math",
@@ -1056,16 +1056,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v12.13.0",
+            "version": "dev-timebox",
             "source": {
                 "type": "git",
-                "url": "https://github.com/laravel/framework.git",
-                "reference": "52b588bcd8efc6d01bc1493d2d67848f8065f269"
+                "url": "https://github.com/valorin/laravel-framework.git",
+                "reference": "fa17182f91beabba2adf71f30660cb6157d7af5b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/52b588bcd8efc6d01bc1493d2d67848f8065f269",
-                "reference": "52b588bcd8efc6d01bc1493d2d67848f8065f269",
+                "url": "https://api.github.com/repos/valorin/laravel-framework/zipball/fa17182f91beabba2adf71f30660cb6157d7af5b",
+                "reference": "fa17182f91beabba2adf71f30660cb6157d7af5b",
                 "shasum": ""
             },
             "require": {
@@ -1247,7 +1247,14 @@
                     ]
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "files": [
+                    "tests/Database/stubs/MigrationCreatorFakeMigration.php"
+                ],
+                "psr-4": {
+                    "Illuminate\\Tests\\": "tests/"
+                }
+            },
             "license": [
                 "MIT"
             ],
@@ -1267,7 +1274,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2025-05-07T17:29:01+00:00"
+            "time": "2025-05-09T03:49:20+00:00"
         },
         {
             "name": "laravel/prompts",
@@ -8073,9 +8080,18 @@
             "time": "2024-03-03T12:36:25+00:00"
         }
     ],
-    "aliases": [],
-    "minimum-stability": "stable",
-    "stability-flags": {},
+    "aliases": [
+        {
+            "package": "laravel/framework",
+            "version": "dev-timebox",
+            "alias": "12.x-dev",
+            "alias_normalized": "12.9999999.9999999.9999999-dev"
+        }
+    ],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "laravel/framework": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
