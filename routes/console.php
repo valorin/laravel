@@ -38,7 +38,7 @@ Artisan::command('timing-attack:attempt {iterations}', function ($iterations) {
         },
         'validate() -> Invalid Email' => function () use ($guard) {
             $guard->getTimebox()->dontReturnEarly();
-            $guard->validate(['email' => 'noone@test.com', 'password' => 'abc']);
+            $guard->validate(['email' => random_int(0, 999_999).'@test.com', 'password' => 'abc']);
         },
 
         // attempt()
@@ -52,7 +52,7 @@ Artisan::command('timing-attack:attempt {iterations}', function ($iterations) {
         },
         'attempt() -> Invalid Email' => function () use ($guard) {
             $guard->getTimebox()->dontReturnEarly();
-            $guard->attempt(['email' => 'noone@test.com', 'password' => 'abc']);
+            $guard->attempt(['email' => random_int(0, 999_999).'@test.com', 'password' => 'abc']);
         },
 
         // attemptWhen()
@@ -66,7 +66,7 @@ Artisan::command('timing-attack:attempt {iterations}', function ($iterations) {
         },
         'attemptWhen() -> Invalid Email' => function () use ($guard) {
             $guard->getTimebox()->dontReturnEarly();
-            $guard->attemptWhen(['email' => 'noone@test.com', 'password' => 'abc']);
+            $guard->attemptWhen(['email' => random_int(0, 999_999).'@test.com', 'password' => 'abc']);
         },
     ], $iterations);
 
@@ -121,7 +121,7 @@ Artisan::command('timing-attack:sendResetLink {iterations}', function ($iteratio
             return $broker->sendResetLink(['email' => $user->email]);
         },
         'Unknown Email' => function () use ($broker) {
-            return $broker->sendResetLink(['email' => 'noone@test.com']);
+            return $broker->sendResetLink(['email' => random_int(0, 999_999).'@test.com']);
         },
     ], $iterations);
 });
@@ -177,7 +177,7 @@ Artisan::command('timing-attack:reset {iterations}', function ($iterations) {
             return $broker->reset(['email' => $user->email, 'token' => 'abc123'], $callback);
         },
         'Unknown Email' => function () use ($broker, $callback) {
-            return $broker->reset(['email' => 'noone@test.com', 'token' => 'abc123'], $callback);
+            return $broker->reset(['email' => random_int(0, 999_999).'@test.com', 'token' => 'abc123'], $callback);
         },
     ], $iterations);
 });
